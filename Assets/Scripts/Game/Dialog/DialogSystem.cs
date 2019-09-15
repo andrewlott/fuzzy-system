@@ -5,7 +5,6 @@ using TMPro;
 
 public class DialogSystem : BaseSystem {
     private static float _RATE = 0.05f; // seconds per character
-    private float _startTime;
     private TextMeshProUGUI _tmp;
     private bool _getNext;
     private bool _waiting;
@@ -14,7 +13,6 @@ public class DialogSystem : BaseSystem {
         _tmp = GameController.Instance.dialogText;
         Pool.Instance.AddSystemListener(typeof(DialogComponent), this);
         Pool.Instance.AddSystemListener(typeof(TouchComponent), this);
-        BaseObject.AddComponent<DialogComponent>().dialog = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc risus felis, varius in aliquam sit amet, hendrerit eget massa. Morbi porta accumsan varius. Nam sit amet augue ultricies ligula gravida fringilla non ac risus. Fusce dapibus metus urna, rhoncus hendrerit risus sodales in. Phasellus arcu augue, vestibulum nec vestibulum vel, rutrum et lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce venenatis velit ligula, id bibendum lectus malesuada non. Cras in placerat dolor, vitae aliquet nunc. Integer ut lectus bibendum, egestas erat ac, ullamcorper dui.";
     }
 
     public override void Stop() {
@@ -29,8 +27,7 @@ public class DialogSystem : BaseSystem {
     public override void OnComponentAdded(BaseComponent c) {
         if (c is DialogComponent) {
             DialogComponent dc = c as DialogComponent;
-            _startTime = Time.time;
-            DisplayDialog(dc.dialog);
+            DisplayDialog(dc);
         } else if (c is TouchComponent) {
             if (_waiting) {
                 _getNext = true;
@@ -41,18 +38,19 @@ public class DialogSystem : BaseSystem {
     public override void OnComponentRemoved(BaseComponent c) {
         if (c is DialogComponent) {
             _tmp.text = "";
+            GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
         }
     }
 
-    private void DisplayDialog(string dialog) {
-        GameController.Instance.HandleCoroutine(InternalDisplayDialog(dialog));
+    private void DisplayDialog(DialogComponent dc) {
+        GameController.Instance.HandleCoroutine(InternalDisplayDialog(dc));
     }
 
-    private IEnumerator InternalDisplayDialog(string dialog) {
+    private IEnumerator InternalDisplayDialog(DialogComponent dc) {
         int len = 0;
-        _tmp.text = dialog;
+        _tmp.text = dc.dialog;
         _tmp.maxVisibleCharacters = 0;
-        while (_tmp.maxVisibleCharacters < dialog.Length) {
+        while (_tmp.maxVisibleCharacters < dc.dialog.Length) {
             len += 1;
             _tmp.maxVisibleCharacters = len;
             yield return new WaitForSeconds(_RATE);
@@ -64,6 +62,7 @@ public class DialogSystem : BaseSystem {
                 _tmp.pageToDisplay = Mathf.Min(_tmp.textInfo.pageCount, _tmp.pageToDisplay + 1);
             }
         }
+        GameObject.Destroy(dc);
     }
 
     private bool HasTouched() {

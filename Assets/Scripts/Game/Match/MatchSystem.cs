@@ -40,6 +40,12 @@ public class MatchSystem : BaseSystem {
 
     public override void OnComponentRemoved(BaseComponent c) {
         if (c is MatchComponent) {
+            MatchComponent mc = c as MatchComponent;
+            if (mc.win) {
+                GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
+            } else {
+                GameController.Instance.dialogStateMachine.SetTrigger("BadTrigger");
+            }
         }
     }
 
@@ -52,15 +58,15 @@ public class MatchSystem : BaseSystem {
         int threshold = mc.threshold - 1;
         float winPercent = Mathf.Max(Mathf.Min(((float)threshold) / ((float)totalSides) + totalSkew, 1.0f), 0.0f);
 
-        Debug.Log(string.Format("Dice:"));
-        foreach(int n in mc.dice) {
-            Debug.Log(string.Format(" {0}", n));
-        }
-        Debug.Log(string.Format("Threshold: {0}", threshold));
-        Debug.Log(string.Format("Win %: {0}", winPercent));
+        //Debug.Log(string.Format("Dice:"));
+        //foreach(int n in mc.dice) {
+        //    Debug.Log(string.Format(" {0}", n));
+        //}
+        //Debug.Log(string.Format("Threshold: {0}", threshold));
+        //Debug.Log(string.Format("Win %: {0}", winPercent));
 
-        bool win = Utils.RandomFloat(1.0f) <= winPercent;
-        int number = win ?
+        mc.win = Utils.RandomFloat(1.0f) <= winPercent;
+        int number = mc.win ?
             1 + Utils.RandomInt(threshold - 1):
             threshold + Utils.RandomInt(totalSides - threshold + 1);
         int diff = totalSides - number;
@@ -68,10 +74,10 @@ public class MatchSystem : BaseSystem {
             int index = Utils.RandomInt(mc.dice.Count);
             mc.dice[index]--;
         }
-        Debug.Log(string.Format("Win: {0}", win));
-        Debug.Log("Dice:");
-        foreach(int n in mc.dice) {
-            Debug.Log(string.Format(" {0}", n));
-        }
+        //Debug.Log(string.Format("Win: {0}", win));
+        //Debug.Log("Dice:");
+        //foreach(int n in mc.dice) {
+        //    Debug.Log(string.Format(" {0}", n));
+        //}
     }
 }

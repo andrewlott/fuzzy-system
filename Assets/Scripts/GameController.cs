@@ -7,10 +7,15 @@ using TMPro;
 
 public class GameController : BaseController {
     private static GameController _instance;
+    private List<string> _dialogs = new List<string>();
+
 
 	public TextMeshProUGUI dialogText;
     public LuckComponent playerLuck;
     public LuckComponent opponentLuck;
+
+    public Animator dialogStateMachine;
+    public TextAsset dialogsFile;
 
     public Camera mainCamera;
 
@@ -45,6 +50,7 @@ public class GameController : BaseController {
         //AddSystem(ads);
 
         Enable();
+        Setup();
     }
 
     private void ScaleCamera() {
@@ -54,4 +60,21 @@ public class GameController : BaseController {
         mainCamera.orthographicSize = desiredHalfHeight;
     }
 
+    private void Setup() {
+        foreach (string line in dialogsFile.text.Split('\n')) {
+            if (line.Length == 0) {
+                continue;
+            }
+            Debug.Log(line);
+            int startIndex = line.IndexOf(':');
+            int id = System.Int32.Parse(line.Substring(0, startIndex));
+            string dialog = line.Substring(startIndex + 2);
+            _dialogs.Add(dialog);
+        }
+        Debug.Log(_dialogs);
+    }
+
+    public void DisplayDialog(int dialogId) {
+        gameObject.AddComponent<DialogComponent>().dialog = _dialogs[dialogId];
+    }
 }

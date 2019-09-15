@@ -6,6 +6,7 @@ using TMPro;
 public class GameSystem : BaseSystem {
 
     public override void Start() {
+
      }
 
     public override void Stop() {
