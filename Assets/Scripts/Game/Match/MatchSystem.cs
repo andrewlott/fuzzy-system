@@ -5,21 +5,19 @@ using TMPro;
 using System.Linq;
 
 public class MatchSystem : BaseSystem {
-    /*
-     * gets player wagered luck
-     * gets opponent wagered luck
-     * gets all dice
-     * gets win threshold, converts total to 0-1 scale
-     * apply luck (add/sub wagered luck points on both sides applied by LUCKPOINTs)
-     * calculates total from all dice rolled
-     * display win or loss
-     */
 
     public override void Start() {
         Pool.Instance.AddSystemListener(typeof(MatchComponent), this);
-        for (int i = 1; i < 7; i++) {
+        int sides = 2;
+        for (int i = 1; i <= sides; i++) {
             MatchComponent mc = BaseObject.AddComponent<MatchComponent>();
-            mc.dice = new List<int> { 6 };
+            mc.dice = new List<int> { sides };
+            mc.threshold = i;
+        }
+        sides = 6;
+        for (int i = 1; i <= sides; i++) {
+            MatchComponent mc = BaseObject.AddComponent<MatchComponent>();
+            mc.dice = new List<int> { sides };
             mc.threshold = i;
         }
     }
@@ -51,14 +49,9 @@ public class MatchSystem : BaseSystem {
         float totalSkew = playerSkew - opponentSkew;
 
         int totalSides = mc.dice.Sum();
-        int threshold = mc.threshold;
+        int threshold = mc.threshold - 1;
         float winPercent = Mathf.Max(Mathf.Min(((float)threshold) / ((float)totalSides) + totalSkew, 1.0f), 0.0f);
-        // TODO: SHOULD BE 0% CHANCE OF WINNING IF THRESHOLD IS 1
 
-        //Debug.Log(string.Format("Player Luck: {0}", playerSkew / LuckSystem.LUCKPOINT));
-        //Debug.Log(string.Format("Opponent Luck: {0}", opponentSkew / LuckSystem.LUCKPOINT));
-        //Debug.Log(string.Format("Total Skew: {0}", totalSkew));
-        Debug.Log(string.Format("Total Sides: {0}", totalSides));
         Debug.Log(string.Format("Dice:"));
         foreach(int n in mc.dice) {
             Debug.Log(string.Format(" {0}", n));
