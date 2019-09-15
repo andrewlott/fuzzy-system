@@ -9,6 +9,8 @@ public class GameController : BaseController {
     private static GameController _instance;
 
 	public TextMeshProUGUI dialogText;
+    public LuckComponent playerLuck;
+    public LuckComponent opponentLuck;
 
     public Camera mainCamera;
 
@@ -25,6 +27,8 @@ public class GameController : BaseController {
         // Add systems here
         DialogSystem dls = new DialogSystem();
         AddSystem(dls);
+		MatchSystem ms = new MatchSystem();
+		AddSystem(ms);
 
 		AnimationSystem ans = new AnimationSystem();
         AddSystem(ans);

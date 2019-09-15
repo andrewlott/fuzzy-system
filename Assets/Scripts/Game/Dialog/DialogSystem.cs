@@ -41,7 +41,6 @@ public class DialogSystem : BaseSystem {
     public override void OnComponentRemoved(BaseComponent c) {
         if (c is DialogComponent) {
             _tmp.text = "";
-            // TODO: Handle text that's multi-screen
         }
     }
 
