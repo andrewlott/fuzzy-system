@@ -86,4 +86,9 @@ public class GameController : BaseController {
         gameObject.AddComponent<DialogComponent>().dialog = _dialogs[dialogId];
     }
 
+    public void ClearDice() {
+        foreach(Transform t in diceHolder.transform) {
+            GameObject.Destroy(t.gameObject);
+        }
+    }
 }

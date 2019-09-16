@@ -77,6 +77,9 @@ public class MatchSystem : BaseSystem {
         int diff = totalSides - number;
         for (int i = 0; i < diff; i++) {
             int index = Utils.RandomInt(mc.rolledDice.Count);
+            while (mc.rolledDice[index] <= 1) {
+                index = Utils.RandomInt(mc.rolledDice.Count);
+            }
             mc.rolledDice[index]--;
         }
         Debug.Log(string.Format("Win: {0}", mc.win));

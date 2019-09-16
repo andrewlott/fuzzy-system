@@ -67,6 +67,7 @@ public class DialogSystem : BaseSystem {
 
     protected virtual void OnComplete(DialogComponent dc) {
         GameObject.Destroy(dc);
+        GameController.Instance.ClearDice();
     }
 
     private bool HasTouched() {
