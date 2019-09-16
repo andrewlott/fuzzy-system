@@ -74,9 +74,9 @@ public class MatchSystem : BaseSystem {
 
         mc.win = Utils.RandomFloat(1.0f) <= winPercent;
         int number = mc.win ?
-            1 + Utils.RandomInt(threshold - 1):
-            threshold + Utils.RandomInt(totalSides - threshold + 1);
-
+            1 + Utils.RandomInt(threshold):
+            1 + threshold + Utils.RandomInt(totalSides - threshold);
+        Debug.Log(string.Format("Number: {0}", number));
         mc.rolledDice = new List<int>(mc.dice);
         int diff = totalSides - number;
         for (int i = 0; i < diff; i++) {
