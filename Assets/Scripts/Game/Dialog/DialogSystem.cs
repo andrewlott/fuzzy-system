@@ -5,7 +5,7 @@ using TMPro;
 
 public class DialogSystem : BaseSystem {
     private static float _RATE = 0.05f; // seconds per character
-    private TextMeshProUGUI _tmp;
+    protected TextMeshProUGUI _tmp;
     private bool _getNext;
     private bool _waiting;
 
@@ -42,7 +42,7 @@ public class DialogSystem : BaseSystem {
         }
     }
 
-    private void DisplayDialog(DialogComponent dc) {
+    protected void DisplayDialog(DialogComponent dc) {
         GameController.Instance.HandleCoroutine(InternalDisplayDialog(dc));
     }
 
@@ -70,8 +70,45 @@ public class DialogSystem : BaseSystem {
         GameController.Instance.ClearDice();
     }
 
-    private bool HasTouched() {
+    protected virtual bool HasTouched() {
         return _getNext;
+    }
+}
+
+class PreMatchDialogSystem : DialogSystem {
+    public override void Start() {
+        _tmp = GameController.Instance.dialogText;
+        Pool.Instance.AddSystemListener(typeof(PreMatchDialogComponent), this);
+    }
+
+    public override void Stop() {
+        Pool.Instance.RemoveSystemListener(typeof(PreMatchDialogComponent), this);
+    }
+
+    public override void OnComponentAdded(BaseComponent c) {
+        if (c is PreMatchDialogComponent) {
+            PreMatchDialogComponent pmdc = c as PreMatchDialogComponent;
+            GameController.Instance.ShowHideLuck(true);
+            DisplayDialog(pmdc);
+        }
+    }
+
+    public override void OnComponentRemoved(BaseComponent c) {
+        if (c is PreMatchDialogComponent) {
+            // TODO: Create match
+            //_tmp.text = "";
+            GameController.Instance.ShowHideLuck(false);
+            GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
+        }
+    }
+
+    protected override void OnComplete(DialogComponent dc) {
+        GameObject.Destroy(dc);
+        GameController.Instance.ClearDice();
+    }
+
+    protected override bool HasTouched() {
+        return GameController.Instance.luckSelected;
     }
 }
 

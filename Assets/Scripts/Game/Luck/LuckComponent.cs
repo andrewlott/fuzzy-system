@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class LuckComponent : BaseComponent {
     public float luck;
-    public float maxLuck;
+    public float maxLuck = 20;
 }

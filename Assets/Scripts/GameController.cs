@@ -11,6 +11,8 @@ public class GameController : BaseController {
 
 	public TextMeshProUGUI dialogText;
     public GameObject diceHolder;
+    public GameObject luckGameObject;
+    public Slider luckSlider;
     public LuckComponent playerLuck;
     public LuckComponent opponentLuck;
 
@@ -20,6 +22,7 @@ public class GameController : BaseController {
     public GameObject d6Prefab;
 
     public Dictionary<int, GameObject> dicePrefabs = new Dictionary<int, GameObject>();
+    public bool luckSelected;
 
     public Camera mainCamera;
 
@@ -36,6 +39,8 @@ public class GameController : BaseController {
         // Add systems here
         DialogSystem dls = new DialogSystem();
         AddSystem(dls);
+        PreMatchDialogSystem pmds = new PreMatchDialogSystem();
+        AddSystem(pmds);
 		MatchSystem ms = new MatchSystem();
 		AddSystem(ms);
 
@@ -65,6 +70,8 @@ public class GameController : BaseController {
     }
 
     private void Setup() {
+        ShowHideLuck(false);
+
         foreach (string line in dialogsFile.text.Split('\n')) {
             if (line.Length == 0) {
                 continue;
@@ -86,9 +93,32 @@ public class GameController : BaseController {
         gameObject.AddComponent<DialogComponent>().dialog = _dialogs[dialogId];
     }
 
+    public void DisplayPreMatchDialog(int dialogId) {
+        gameObject.AddComponent<PreMatchDialogComponent>().dialog = _dialogs[dialogId];
+    }
+
+
     public void ClearDice() {
         foreach(Transform t in diceHolder.transform) {
             GameObject.Destroy(t.gameObject);
         }
+    }
+
+    public void ShowHideLuck(bool show) {
+        luckSelected = false;
+        if (show) {
+            playerLuck.luck = 0;
+            luckSlider.maxValue = playerLuck.maxLuck;
+            luckSlider.value = playerLuck.luck;
+        }
+        luckGameObject.SetActive(show);
+    }
+
+    public void OnLuckSliderChanged(Slider slider) {
+        playerLuck.luck = slider.value;
+    }
+
+    public void SelectLuck() {
+        luckSelected = true;
     }
 }
