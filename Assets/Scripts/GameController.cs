@@ -91,7 +91,7 @@ public class GameController : BaseController {
         dicePrefabs.Add(2, d2Prefab);
         dicePrefabs.Add(6, d6Prefab);
         dicePrefabs.Add(10, d6Prefab);
-        dicePrefabs.Add(20, d6Prefab);
+        dicePrefabs.Add(20, d20Prefab);
 
 		playerLuck.item = "four-leafed clover"; // todo: randomize
 		opponentLuck.item = "lucky rabbit's foot";

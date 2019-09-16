@@ -568,7 +568,7 @@ MonoBehaviour:
     type: 3}
   d6Prefab: {fileID: 8078756314038993330, guid: 665de160aa8fd457eaf288bbcd759cce,
     type: 3}
-  d20Prefab: {fileID: 4145758533814860393, guid: b3b0e40287d734c8497ed6b9c54c75fd,
+  d20Prefab: {fileID: 8078756314038993330, guid: b3b0e40287d734c8497ed6b9c54c75fd,
     type: 3}
   luckSelected: 0
   mainCamera: {fileID: 228053858}

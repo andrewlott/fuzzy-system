@@ -114,11 +114,12 @@ public class MatchSystem : BaseSystem {
                 nextRandomSide = Utils.RandomInt(sides);
             }
             randomSide = nextRandomSide;
-            die.GetComponent<Dice>().SetFace(nextRandomSide);
+            die.GetComponent<Dice>().SetFace(nextRandomSide + 1);
             yield return new WaitForSeconds(counter * _animationRate);
             counter++;
         }
-        die.GetComponent<Dice>().SetFace(outcome - 1);
+        die.GetComponent<Dice>().SetFace(outcome);
+        die.GetComponent<Dice>().SetOutcomeColors(mc.win);
         _animatingCounter--;
         if (_animatingCounter == 0) {
             OnComplete(mc);

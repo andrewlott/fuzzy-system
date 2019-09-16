@@ -551,10 +551,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389c714106daa45d9b93e95ce8e3955a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dice: 06000000
+  dice: 14000000
   threshold: 5
   opponentLuck: 1
-  opponentMaxLuck: 5
+  opponentMaxLuck: 15
 --- !u!114 &-5778615546035082425
 MonoBehaviour:
   m_ObjectHideFlags: 3

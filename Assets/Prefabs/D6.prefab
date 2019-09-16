@@ -25,17 +25,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781216244672703767}
-  m_LocalRotation: {x: -0.009039079, y: 0.63342327, z: -0.05232828, w: 0.77198124}
+  m_LocalRotation: {x: -0.0020505562, y: 0.66470474, z: -0.060006443, w: 0.74468964}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5214642995252684527}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 3, y: 78.6, z: -5.3}
+  m_LocalEulerAnglesHint: {x: 4.4, y: 83.3, z: -5.3}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -173.2, y: -38.5}
-  m_SizeDelta: {x: 570.8, y: 252.8}
+  m_SizeDelta: {x: 1105, y: 252.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4668423058314063527
 CanvasRenderer:
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.26545048, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.26545048, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -346,14 +346,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.26545048, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: b8edd7a384b874c7a90d51024eea1b0f, type: 3}
+  m_Texture: {fileID: 2800000, guid: 78f5299898e14487d858ee3113734106, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
