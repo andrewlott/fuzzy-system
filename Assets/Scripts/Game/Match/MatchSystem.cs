@@ -44,7 +44,7 @@ public class MatchSystem : BaseSystem {
     public override void OnComponentRemoved(BaseComponent c) {
         if (c is MatchComponent) {
             MatchComponent mc = c as MatchComponent;
-            if (mc.win) {
+                if (mc.win) {
                 GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
             } else {
                 GameController.Instance.dialogStateMachine.SetTrigger("BadTrigger");
@@ -100,9 +100,15 @@ public class MatchSystem : BaseSystem {
         _animatingCounter++;
         // TODO: Use target transform and bounce to it
         float counter = 0;
+        int randomSide = -1;
         while (counter < _maxAnimationTimes) {
             // TODO: Change faces
-            die.GetComponent<TMPro.TextMeshProUGUI>().text = string.Format("{0}", 1 + Utils.RandomInt(sides));
+            int nextRandomSide = Utils.RandomInt(sides);
+            while (nextRandomSide == randomSide) {
+                nextRandomSide = Utils.RandomInt(sides);
+            }
+            randomSide = nextRandomSide;
+            die.GetComponent<TMPro.TextMeshProUGUI>().text = string.Format("{0}", 1 + nextRandomSide);
             yield return new WaitForSeconds(counter * _animationRate);
             counter++;
         }

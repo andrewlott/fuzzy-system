@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389c714106daa45d9b93e95ce8e3955a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dice: 06000000
-  threshold: 4
+  dice: 0600000006000000
+  threshold: 7
 --- !u!1102 &-8272868862108739261
 AnimatorState:
   serializedVersion: 5
