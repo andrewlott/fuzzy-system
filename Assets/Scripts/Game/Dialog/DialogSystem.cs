@@ -62,6 +62,10 @@ public class DialogSystem : BaseSystem {
                 _tmp.pageToDisplay = Mathf.Min(_tmp.textInfo.pageCount, _tmp.pageToDisplay + 1);
             }
         }
+        OnComplete(dc);
+    }
+
+    protected virtual void OnComplete(DialogComponent dc) {
         GameObject.Destroy(dc);
     }
 
@@ -69,3 +73,10 @@ public class DialogSystem : BaseSystem {
         return _getNext;
     }
 }
+
+/*
+ * Match dialog system doesn't destroy, match system does.
+ * Match system gets the component, does the calculation, plays animation, then when it's done allows for continue (does this by setting _getNext to false, or leaving it false, and then setting it to true
+ * -- maybe move all the internal stuff to update to make that easier, or leave in update of match dialog system
+ * 
+ */

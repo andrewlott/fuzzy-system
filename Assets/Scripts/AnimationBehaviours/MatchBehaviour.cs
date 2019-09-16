@@ -10,7 +10,6 @@ public class MatchBehaviour : StateMachineBehaviour {
         MatchComponent mc = GameController.Instance.gameObject.AddComponent<MatchComponent>();
         mc.dice = dice;
         mc.threshold = threshold;
-
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MatchComponent : BaseComponent {
     public List<int> dice; // list with number of sides each
+    public List<int> rolledDice; // outcome
     public int threshold;
     //public bool playerHigh; // TODO: Implement
 

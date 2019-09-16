@@ -288,6 +288,7 @@ RectTransform:
   - {fileID: 179454390}
   - {fileID: 290963603}
   - {fileID: 326154386}
+  - {fileID: 1189482810}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -447,10 +448,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogText: {fileID: 1000284464}
+  diceHolder: {fileID: 1189482809}
   playerLuck: {fileID: 290963604}
   opponentLuck: {fileID: 326154387}
   dialogStateMachine: {fileID: 271961314}
   dialogsFile: {fileID: 4900000, guid: 92d7331c384374491a1e9312bc632cec, type: 3}
+  d6Prefab: {fileID: 4145758533814860393, guid: 665de160aa8fd457eaf288bbcd759cce,
+    type: 3}
   mainCamera: {fileID: 228053858}
 --- !u!4 &271961313
 Transform:
@@ -1033,6 +1037,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000284462}
   m_CullTransparentMesh: 0
+--- !u!1 &1189482809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1189482810}
+  m_Layer: 5
+  m_Name: DiceHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1189482810
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189482809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 153879843}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1207700943
 GameObject:
   m_ObjectHideFlags: 0

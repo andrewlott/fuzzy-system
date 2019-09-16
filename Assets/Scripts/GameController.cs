@@ -9,13 +9,17 @@ public class GameController : BaseController {
     private static GameController _instance;
     private List<string> _dialogs = new List<string>();
 
-
 	public TextMeshProUGUI dialogText;
+    public GameObject diceHolder;
     public LuckComponent playerLuck;
     public LuckComponent opponentLuck;
 
     public Animator dialogStateMachine;
     public TextAsset dialogsFile;
+
+    public GameObject d6Prefab;
+
+    public Dictionary<int, GameObject> dicePrefabs = new Dictionary<int, GameObject>();
 
     public Camera mainCamera;
 
@@ -71,10 +75,15 @@ public class GameController : BaseController {
             string dialog = line.Substring(startIndex + 2);
             _dialogs.Add(dialog);
         }
-        Debug.Log(_dialogs);
+
+        dicePrefabs.Add(2, d6Prefab);
+        dicePrefabs.Add(6, d6Prefab);
+        dicePrefabs.Add(10, d6Prefab);
+        dicePrefabs.Add(20, d6Prefab);
     }
 
     public void DisplayDialog(int dialogId) {
         gameObject.AddComponent<DialogComponent>().dialog = _dialogs[dialogId];
     }
+
 }
