@@ -566,7 +566,7 @@ MonoBehaviour:
   dialogsFile: {fileID: 4900000, guid: 92d7331c384374491a1e9312bc632cec, type: 3}
   d2Prefab: {fileID: 8078756314038993330, guid: dc69df65078854edd90418022d498941,
     type: 3}
-  d6Prefab: {fileID: 4145758533814860393, guid: 665de160aa8fd457eaf288bbcd759cce,
+  d6Prefab: {fileID: 8078756314038993330, guid: 665de160aa8fd457eaf288bbcd759cce,
     type: 3}
   d20Prefab: {fileID: 4145758533814860393, guid: b3b0e40287d734c8497ed6b9c54c75fd,
     type: 3}
