@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public class DialogSystem : BaseSystem {
-    private static float _RATE = 0.05f; // seconds per character
+	private static float _RATE = 0.001f; //0.025f; // seconds per character
     protected TextMeshProUGUI _tmp;
     private bool _getNext;
     private bool _waiting;
@@ -38,6 +38,7 @@ public class DialogSystem : BaseSystem {
     public override void OnComponentRemoved(BaseComponent c) {
         if (c is DialogComponent) {
             _tmp.text = "";
+			_tmp.pageToDisplay = 1;
             GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
         }
     }
@@ -46,23 +47,24 @@ public class DialogSystem : BaseSystem {
         GameController.Instance.HandleCoroutine(InternalDisplayDialog(dc));
     }
 
+    // bug in dialog system where get stuck on wrong page maybe
     private IEnumerator InternalDisplayDialog(DialogComponent dc) {
         int len = 0;
-        _tmp.text = dc.dialog;
+        _tmp.text = string.Format(dc.dialog, GameController.Instance.playerLuck.item, GameController.Instance.opponentLuck.item);
         _tmp.maxVisibleCharacters = 0;
-        while (_tmp.maxVisibleCharacters < dc.dialog.Length) {
+        while (_tmp.maxVisibleCharacters < _tmp.text.Length) {
             len += 1;
             _tmp.maxVisibleCharacters = len;
             yield return new WaitForSeconds(_RATE);
-            if (_tmp.maxVisibleCharacters > _tmp.textInfo.pageInfo[_tmp.pageToDisplay - 1].lastCharacterIndex) {
+            if (_tmp.maxVisibleCharacters > _tmp.textInfo.pageInfo[_tmp.pageToDisplay - 1].lastCharacterIndex) { // condition needs improving
                 _waiting = true;
                 yield return new WaitUntil(HasTouched);
                 _waiting = false;
                 _getNext = false;
-                _tmp.pageToDisplay = Mathf.Min(_tmp.textInfo.pageCount, _tmp.pageToDisplay + 1);
+                _tmp.pageToDisplay = Mathf.Min(_tmp.textInfo.pageInfo.Length, _tmp.pageToDisplay + 1);
             }
         }
-        OnComplete(dc);
+		OnComplete(dc);
     }
 
     protected virtual void OnComplete(DialogComponent dc) {
@@ -89,14 +91,15 @@ class PreMatchDialogSystem : DialogSystem {
         if (c is PreMatchDialogComponent) {
             PreMatchDialogComponent pmdc = c as PreMatchDialogComponent;
             GameController.Instance.ShowHideLuck(true);
+            PlayerPrefs.SetInt("CheckPoint", pmdc.dialogId);
             DisplayDialog(pmdc);
         }
     }
 
     public override void OnComponentRemoved(BaseComponent c) {
         if (c is PreMatchDialogComponent) {
-            // TODO: Create match
             //_tmp.text = "";
+            _tmp.pageToDisplay = 1;
             GameController.Instance.ShowHideLuck(false);
             GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
         }

@@ -1,2 +1,29 @@
-0: Test!
-1: Next test!!
+You feel the last bit of luck drain from your {0}. Your feel sudden clarity in your mind and full control over your body. You wonder really what you're doing here, and walk out the door. Still a bit confused, you continue your way home. You stop at the next corner to wait for the light to change.
+---
+---
+---
+---
+---
+---
+---
+---
+---
+You're walking by yourself through town. The weather is becoming more brisk this time of year and you thought you'd better get out and enjoy the warmth before autumn fully sets in. You pick up some food for yourself to eat at home and take a moment to appreciate the view of today's cloudless mid-afternoon sky. As you're returning home, you pass a large group of lost tourists, looking for where to go. You take out your headphones to see if they need help, but it seems like they've got it. While attempting to put your headphones back in, you turn a corner and nearly bump into a small elderly man walking his equally elderly Pomeranian. Your pace slows as you notice on the ground a {0}. You hesitate, placing your headphones around your neck,and then crouch down to pick it up. It's not like you, you think, to care about luck or supertition, but you feel compelled to pick it up.
+You hear a faint, jolly voice from behind you. "It must be your lucky day...", they say. Holding the {0}, you glance over your shoulder, but nobody is there. You've had your fill of weird vibes for the day, so you put your headphones in and get back on your way. While you walk toward your home, you  the {0} in your hand, inspecting it from all sides. The weird vibes you felt aren't leaving and anxiety is creeping in. You start to notice things are a bit off. You haven't had to stop at a red light to cross the street. Your favorite songs on shuffle have all come on. The mind sure finds patterns where it wants to, you think. You chalk it up to coincidence, but you definitely feel off.
+You stop suddenly in the middle of the block. You've walked this route a hundred times, but you've never noticed this emerald green door before. In fact you've never seen this whole building before. You feel mysteriously compelled to learn about it, and as you approach, a large burly bouncer emerges from the door.
+"You sure you're in the right place, kid?" he says in gruff voice. You don't know why, but you nod affirmatively. The bouncer sighs. "Alright, then let's see if you've got what it takes.." He reaches into his pocket and as he stretches out his arm, you brace yourself. You clutch the {0} tightly. You realize he's holding out a coin. "I'll take heads" he says with a slight smile. "Make sure you use that thing improve your odds."
+---
+The Bouncer wins with a heads. You gulp and hold your {0} tight.
+---
+"Huh, maybe it really is your lucky day, kid.", the Bouncer says. He beckons you through the door to a dark room with a lot of clatter and chatter.
+"Maybe it's not your lucky day after all, kid. Let's try again"
+---
+It's too dark to make out anyone's face, but you can see several tables around the room, as well as a curtained doorway in the back. It seems like it leads to another room, and again you feel drawn toward it. As you start to walk toward the curtained doorway, someone stands up from a nearby table and comes up to you.
+"Bruh, are you really headed back there, bruh?", the person says to you. Before you can nod your head, they say "Bruh, you just <i>got</i> here! I don't think you're ready for what's back there. Besides, I've been looking to stomp some noobs and I can tell from your bag of food that you're a total scrub." You realize you're still holding your takeout bag and feel some embarrassed anger emenating from you as this guy herds you toward the table they came from. You sit down across them them, still confused, when they place down a six-sided die and a {1}. You feel similar energy from their {1} as you do from your {0}, which you also place on the table. "I win if you get a 5 or above. Good luck, bruh, you'll need it.", he says.
+---
+"Bruh" Bruh wins with a 5 or above. How much luck will you use to win?
+---
+"Bruh... nice." You feel the energy of his {1} waning and yours becoming more strong.
+"Sorry, bruh, I told you you weren't ready." he says. "Maybe I'll give you another shot"
+---
+You stand up from the table and feel several sets of eyes on you. Another person approaches you and says...

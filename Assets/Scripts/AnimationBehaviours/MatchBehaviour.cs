@@ -5,8 +5,15 @@ using UnityEngine;
 public class MatchBehaviour : StateMachineBehaviour {
     public List<int> dice;
     public int threshold;
+
+    public int opponentLuck;
+    public int opponentMaxLuck;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        GameController.Instance.opponentLuck.luck = opponentLuck;
+        GameController.Instance.opponentLuck.maxLuck = opponentMaxLuck;
+
         MatchComponent mc = GameController.Instance.gameObject.AddComponent<MatchComponent>();
         mc.dice = dice;
         mc.threshold = threshold;

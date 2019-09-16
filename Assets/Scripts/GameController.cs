@@ -13,13 +13,16 @@ public class GameController : BaseController {
     public GameObject diceHolder;
     public GameObject luckGameObject;
     public Slider luckSlider;
+    public TextMeshProUGUI sliderText;
     public LuckComponent playerLuck;
     public LuckComponent opponentLuck;
 
     public Animator dialogStateMachine;
     public TextAsset dialogsFile;
 
+    public GameObject d2Prefab;
     public GameObject d6Prefab;
+    public GameObject d20Prefab;
 
     public Dictionary<int, GameObject> dicePrefabs = new Dictionary<int, GameObject>();
     public bool luckSelected;
@@ -71,30 +74,46 @@ public class GameController : BaseController {
 
     private void Setup() {
         ShowHideLuck(false);
+        dialogText.text = "";
 
+        _dialogs.Add(""); // to offset
         foreach (string line in dialogsFile.text.Split('\n')) {
             if (line.Length == 0) {
                 continue;
             }
-            Debug.Log(line);
-            int startIndex = line.IndexOf(':');
-            int id = System.Int32.Parse(line.Substring(0, startIndex));
-            string dialog = line.Substring(startIndex + 2);
+			//int startIndex = line.IndexOf(':');
+			//int id = System.Int32.Parse(line.Substring(0, startIndex));
+			//string dialog = line.Substring(startIndex + 2);
+			string dialog = line;
             _dialogs.Add(dialog);
         }
 
-        dicePrefabs.Add(2, d6Prefab);
+        dicePrefabs.Add(2, d2Prefab);
         dicePrefabs.Add(6, d6Prefab);
         dicePrefabs.Add(10, d6Prefab);
         dicePrefabs.Add(20, d6Prefab);
+
+		playerLuck.item = "four-leafed clover"; // todo: randomize
+		opponentLuck.item = "lucky rabbit's foot";
+
+        int checkPoint = PlayerPrefs.GetInt("CheckPoint");
+        if (checkPoint > 0) {
+			dialogStateMachine.SetInteger("CheckPoint", checkPoint);
+		} else {
+			dialogStateMachine.SetTrigger("GoodTrigger");
+		}
     }
 
     public void DisplayDialog(int dialogId) {
-        gameObject.AddComponent<DialogComponent>().dialog = _dialogs[dialogId];
+        DialogComponent dc = gameObject.AddComponent<DialogComponent>();
+        dc.dialogId = dialogId;
+        dc.dialog = _dialogs[dialogId];
     }
 
     public void DisplayPreMatchDialog(int dialogId) {
-        gameObject.AddComponent<PreMatchDialogComponent>().dialog = _dialogs[dialogId];
+        PreMatchDialogComponent pmdc = gameObject.AddComponent<PreMatchDialogComponent>();
+        pmdc.dialogId = dialogId;
+        pmdc.dialog = _dialogs[dialogId];
     }
 
 
@@ -107,18 +126,25 @@ public class GameController : BaseController {
     public void ShowHideLuck(bool show) {
         luckSelected = false;
         if (show) {
-            playerLuck.luck = 0;
+            playerLuck.luck = (int)luckSlider.minValue;
             luckSlider.maxValue = playerLuck.maxLuck;
             luckSlider.value = playerLuck.luck;
+            sliderText.text = string.Format("Use {0} Luck", playerLuck.luck);
         }
         luckGameObject.SetActive(show);
     }
 
     public void OnLuckSliderChanged(Slider slider) {
-        playerLuck.luck = slider.value;
+        playerLuck.luck = (int)slider.value;
+        sliderText.text = string.Format("Use {0} Luck", playerLuck.luck);
     }
 
     public void SelectLuck() {
         luckSelected = true;
+        playerLuck.maxLuck -= playerLuck.luck;
+    }
+
+    public void OutOfLuck() {
+        // TODO: Reset
     }
 }

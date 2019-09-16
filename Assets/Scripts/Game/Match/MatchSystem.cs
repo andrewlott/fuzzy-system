@@ -40,12 +40,16 @@ public class MatchSystem : BaseSystem {
             AnimateDice(mc);
         }
     }
+    // SOMETIMES WIN CONDITION IS NOT RIGHT
 
     public override void OnComponentRemoved(BaseComponent c) {
         if (c is MatchComponent) {
             MatchComponent mc = c as MatchComponent;
-                if (mc.win) {
+            if (mc.win) {
+                GameController.Instance.playerLuck.maxLuck += GameController.Instance.opponentLuck.maxLuck; // TODO: Maybe its more fair to use luck
                 GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
+            } else if (GameController.Instance.playerLuck.maxLuck < 1) {
+                GameController.Instance.dialogStateMachine.SetTrigger("OutOfLuckTrigger");
             } else {
                 GameController.Instance.dialogStateMachine.SetTrigger("BadTrigger");
             }
@@ -105,18 +109,16 @@ public class MatchSystem : BaseSystem {
         float counter = 0;
         int randomSide = -1;
         while (counter < _maxAnimationTimes) {
-            // TODO: Change faces
             int nextRandomSide = Utils.RandomInt(sides);
             while (nextRandomSide == randomSide) {
                 nextRandomSide = Utils.RandomInt(sides);
             }
             randomSide = nextRandomSide;
-            die.GetComponent<TMPro.TextMeshProUGUI>().text = string.Format("{0}", 1 + nextRandomSide);
+            die.GetComponent<Dice>().SetFace(nextRandomSide);
             yield return new WaitForSeconds(counter * _animationRate);
             counter++;
         }
-        // TODO: Change face one last time
-        die.GetComponent<TMPro.TextMeshProUGUI>().text = string.Format("{0}", outcome);
+        die.GetComponent<Dice>().SetFace(outcome - 1);
         _animatingCounter--;
         if (_animatingCounter == 0) {
             OnComplete(mc);
