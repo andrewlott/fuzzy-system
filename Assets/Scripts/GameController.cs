@@ -147,4 +147,8 @@ public class GameController : BaseController {
     public void OutOfLuck() {
         // TODO: Reset
     }
+
+    public void ClearProgress() {
+        PlayerPrefs.DeleteAll();
+    }
 }
