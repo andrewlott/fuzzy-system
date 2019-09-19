@@ -1,5 +1,33 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1102 &-9151316085737996451
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New State
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -4579937343961339054}
+  m_StateMachineBehaviours:
+  - {fileID: -9041144382509502542}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-9109488660633900877
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -38,6 +66,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogId: 24
+  enterFunction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  exitFunction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  item: 
+--- !u!114 &-9041144382509502542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogId: 40
   enterFunction:
     m_PersistentCalls:
       m_Calls: []
@@ -121,31 +173,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1101 &-8606847135254883128
-AnimatorStateTransition:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: GoodTrigger
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -2246538215986035959}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 0.75
-  m_HasExitTime: 0
-  m_HasFixedDuration: 0
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
 --- !u!1101 &-8542059438664600845
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -183,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogId: 27
+  dialogId: 34
   enterFunction:
     m_PersistentCalls:
       m_Calls: []
@@ -194,6 +221,31 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1101 &-8155511554908100391
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: CheckPoint
+    m_EventTreshold: 31
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2246538215986035959}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1102 &-8143248267324092643
 AnimatorState:
   serializedVersion: 5
@@ -295,6 +347,34 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &-7939763766711099507
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New State 1
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -7320007664480775900}
+  m_StateMachineBehaviours:
+  - {fileID: 3081542192512810232}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-7754743561095692516
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -332,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogId: 26
+  dialogId: 33
   enterFunction:
     m_PersistentCalls:
       m_Calls: []
@@ -497,6 +577,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  item: 
 --- !u!1102 &-7499878827751967930
 AnimatorState:
   serializedVersion: 5
@@ -565,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogId: 27
+  dialogId: 40
   enterFunction:
     m_PersistentCalls:
       m_Calls: []
@@ -589,6 +670,31 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7499878827751967930}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-7320007664480775900
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: GoodTrigger
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -21622976117735546}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -826,6 +932,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  item: 
 --- !u!1102 &-6904217240824310971
 AnimatorState:
   serializedVersion: 5
@@ -932,6 +1039,31 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1101 &-6755165857382703035
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: GoodTrigger
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 7874792149420780340}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &-6675652586401009751
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1224,9 +1356,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dice: 06000000
-  threshold: 5
-  opponentLuck: 1
-  opponentMaxLuck: 5
+  threshold: 3
+  opponentLuck: 3
+  opponentMaxLuck: 3
 --- !u!114 &-5778615546035082425
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1250,6 +1382,32 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  item: lucky rabbit foot
+--- !u!1101 &-5730122616852983771
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: GoodTrigger
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2246538215986035959}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &-5638541028712593801
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1338,7 +1496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1614a3b1e9a9478aa483e2840602c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogId: 24
+  dialogId: 38
   enterFunction:
     m_PersistentCalls:
       m_Calls: []
@@ -1349,6 +1507,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  item: laughing Buddha statue
 --- !u!1101 &-5333656228067151453
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -1531,34 +1690,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-4756192458578578980
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Dialog 7 3
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: -8606847135254883128}
-  m_StateMachineBehaviours:
-  - {fileID: 3293622043912418122}
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1102 &-4683285219599552250
 AnimatorState:
   serializedVersion: 5
@@ -1637,6 +1768,59 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-4648970670872211289
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New State 0
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 8974768123936502993}
+  m_StateMachineBehaviours:
+  - {fileID: 5544546872749227212}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1101 &-4579937343961339054
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: GoodTrigger
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -4648970670872211289}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &-4575767438318690294
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1768,7 +1952,8 @@ AnimatorState:
   m_Name: Dialog 8
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
+  m_Transitions:
+  - {fileID: -5730122616852983771}
   m_StateMachineBehaviours:
   - {fileID: -1905205391383839182}
   m_Position: {x: 50, y: 50, z: 0}
@@ -2051,10 +2236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389c714106daa45d9b93e95ce8e3955a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dice: 06000000
-  threshold: 5
-  opponentLuck: 1
-  opponentMaxLuck: 5
+  dice: 14000000
+  threshold: 13
+  opponentLuck: 7
+  opponentMaxLuck: 7
 --- !u!114 &-2901410935513623300
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2078,34 +2263,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1102 &-2558774284727517948
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Dialog 7 2
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: 2270124797515574654}
-  m_StateMachineBehaviours:
-  - {fileID: 5149009815404131670}
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!114 &-2519018592333296533
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2194,7 +2351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83be720d1ed534e2a86fc916dddca4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogId: 0
+  dialogId: 1
   enterFunction:
     m_PersistentCalls:
       m_Calls: []
@@ -2253,6 +2410,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  item: 
 --- !u!1102 &-2246538215986035959
 AnimatorState:
   serializedVersion: 5
@@ -2391,7 +2549,8 @@ AnimatorState:
   m_Name: Out Of Luck
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
+  m_Transitions:
+  - {fileID: 5062416424993648236}
   m_StateMachineBehaviours:
   - {fileID: -2437151867195672167}
   m_Position: {x: 50, y: 50, z: 0}
@@ -2534,6 +2693,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  item: 
 --- !u!114 &-1250096057974282067
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2569,7 +2729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1614a3b1e9a9478aa483e2840602c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogId: 24
+  dialogId: 31
   enterFunction:
     m_PersistentCalls:
       m_Calls: []
@@ -2580,6 +2740,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  item: horseshoe
 --- !u!1101 &-1147469935770768370
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -2663,7 +2824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogId: 29
+  dialogId: 36
   enterFunction:
     m_PersistentCalls:
       m_Calls: []
@@ -3404,22 +3565,22 @@ AnimatorStateMachine:
     m_Position: {x: 260, y: 1940, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1307773930204774150}
-    m_Position: {x: 1160, y: 4450, z: 0}
+    m_Position: {x: -100, y: 2970, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2105832933429554399}
-    m_Position: {x: 1650, y: 4440, z: 0}
+    m_Position: {x: 390, y: 2960, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4661126258141396888}
-    m_Position: {x: 1390, y: 4170, z: 0}
+    m_Position: {x: 130, y: 2690, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 104970530128292567}
-    m_Position: {x: 1410, y: 4530, z: 0}
+    m_Position: {x: 150, y: 3050, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 545027113805829686}
-    m_Position: {x: 1400, y: 4310, z: 0}
+    m_Position: {x: 140, y: 2830, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9078700166644041076}
-    m_Position: {x: 1380, y: 4050, z: 0}
+    m_Position: {x: 120, y: 2570, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8526847212886039256}
     m_Position: {x: 1130, y: 3820, z: 0}
@@ -3436,9 +3597,6 @@ AnimatorStateMachine:
     m_State: {fileID: -6834490585843833927}
     m_Position: {x: 1370, y: 3680, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -2558774284727517948}
-    m_Position: {x: 1350, y: 3420, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: -6318716363443344113}
     m_Position: {x: 1120, y: 3230, z: 0}
   - serializedVersion: 1
@@ -3454,8 +3612,14 @@ AnimatorStateMachine:
     m_State: {fileID: 8224471902420263419}
     m_Position: {x: 1360, y: 3090, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -4756192458578578980}
-    m_Position: {x: 1340, y: 2830, z: 0}
+    m_State: {fileID: -9151316085737996451}
+    m_Position: {x: 1380, y: 4010, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -4648970670872211289}
+    m_Position: {x: 1390, y: 4100, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7939763766711099507}
+    m_Position: {x: 1390, y: 4190, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -7754743561095692516}
@@ -3642,6 +3806,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  item: 
 --- !u!114 &1786334006726014686
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -3715,31 +3880,6 @@ AnimatorStateTransition:
   m_ExitTime: 0.75
   m_HasExitTime: 1
   m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &2270124797515574654
-AnimatorStateTransition:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: GoodTrigger
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 7874792149420780340}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 0.75
-  m_HasExitTime: 0
-  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -3910,6 +4050,29 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &3081542192512810232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogId: 43
+  enterFunction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  exitFunction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1101 &3090212513939490570
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -3936,29 +4099,6 @@ AnimatorStateTransition:
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!114 &3265582446520057549
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogId: 22
-  enterFunction:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  exitFunction:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &3293622043912418122
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4118,6 +4258,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  item: 
 --- !u!114 &3934582957739815225
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -4153,7 +4294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogId: 26
+  dialogId: 40
   enterFunction:
     m_PersistentCalls:
       m_Calls: []
@@ -4219,6 +4360,8 @@ AnimatorState:
   - {fileID: 8820225773732848898}
   - {fileID: -2514460631160108213}
   - {fileID: -7662024125118542731}
+  - {fileID: -8155511554908100391}
+  - {fileID: 7023583798440142121}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -4262,6 +4405,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &5062416424993648236
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: GoodTrigger
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -21622976117735546}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &5089786226945336396
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -4287,29 +4455,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!114 &5149009815404131670
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogId: 22
-  enterFunction:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  exitFunction:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1101 &5270274315208845181
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -4410,6 +4555,29 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &5544546872749227212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogId: 42
+  enterFunction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  exitFunction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1102 &5684558001072902163
 AnimatorState:
   serializedVersion: 5
@@ -4461,6 +4629,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  item: 
 --- !u!1102 &5827424111126506060
 AnimatorState:
   serializedVersion: 5
@@ -4693,7 +4862,8 @@ AnimatorState:
   m_Name: Dialog 8 3
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
+  m_Transitions:
+  - {fileID: -6755165857382703035}
   m_StateMachineBehaviours:
   - {fileID: -1080071922420642043}
   m_Position: {x: 50, y: 50, z: 0}
@@ -4786,6 +4956,56 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &7023583798440142121
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: CheckPoint
+    m_EventTreshold: 38
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 7874792149420780340}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &7080780547987516986
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: GoodTrigger
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -9151316085737996451}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &7269012269715513802
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -4798,10 +5018,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389c714106daa45d9b93e95ce8e3955a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dice: 06000000
-  threshold: 5
-  opponentLuck: 1
-  opponentMaxLuck: 5
+  dice: 0600000006000000
+  threshold: 4
+  opponentLuck: 4
+  opponentMaxLuck: 4
 --- !u!114 &7311211882212444857
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -4916,7 +5136,8 @@ AnimatorState:
   m_Name: Dialog 8 2
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
+  m_Transitions:
+  - {fileID: 7080780547987516986}
   m_StateMachineBehaviours:
   - {fileID: 8812777988252110523}
   m_Position: {x: 50, y: 50, z: 0}
@@ -4948,7 +5169,7 @@ MonoBehaviour:
   dice: 02000000
   threshold: 2
   opponentLuck: 0
-  opponentMaxLuck: 5
+  opponentMaxLuck: 2
 --- !u!1102 &8224471902420263419
 AnimatorState:
   serializedVersion: 5
@@ -5023,6 +5244,28 @@ AnimatorStateTransition:
   m_ExitTime: 0.75
   m_HasExitTime: 0
   m_HasFixedDuration: 0
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &8325529658363738621
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -5215,7 +5458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362338b1f4027454e85c4bc63046fb5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogId: 29
+  dialogId: 40
   enterFunction:
     m_PersistentCalls:
       m_Calls: []
@@ -5279,6 +5522,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &8974768123936502993
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: GoodTrigger
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -7939763766711099507}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &9061606103734888003
 AnimatorStateTransition:
   m_ObjectHideFlags: 3

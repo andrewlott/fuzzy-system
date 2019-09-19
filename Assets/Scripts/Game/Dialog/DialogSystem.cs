@@ -40,6 +40,11 @@ public class DialogSystem : BaseSystem {
 
     public override void OnComponentRemoved(BaseComponent c) {
         if (c is DialogComponent) {
+            DialogComponent dc = c as DialogComponent;
+            if (dc.dialogId == 43) {
+                GameController.Instance.ClearProgress();
+                return;
+            }
             _tmp.text = "";
 			_tmp.pageToDisplay = 1;
             GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
@@ -63,6 +68,9 @@ public class DialogSystem : BaseSystem {
                 yield return new WaitUntil(HasTouched);
                 _waiting = false;
                 _getNext = false;
+                if (_tmp.pageToDisplay == _tmp.textInfo.pageInfo.Length) {
+                    break;
+                }
                 _tmp.pageToDisplay = Mathf.Min(_tmp.textInfo.pageInfo.Length, _tmp.pageToDisplay + 1);
             }
         }

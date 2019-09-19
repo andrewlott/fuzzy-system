@@ -94,7 +94,6 @@ public class GameController : BaseController {
         dicePrefabs.Add(20, d20Prefab);
 
 		playerLuck.item = "four-leafed clover"; // todo: randomize
-		opponentLuck.item = "lucky rabbit's foot";
 
         int checkPoint = PlayerPrefs.GetInt("CheckPoint");
         if (checkPoint > 0) {
@@ -140,8 +139,11 @@ public class GameController : BaseController {
     }
 
     public void SelectLuck() {
-        luckSelected = true;
-        playerLuck.maxLuck -= playerLuck.luck;
+        if (!luckSelected) {
+            luckSelected = true;
+            playerLuck.maxLuck -= playerLuck.luck;
+            Debug.Log(string.Format("Player luck used {0} to {1}", playerLuck.luck, GameController.Instance.playerLuck.maxLuck));
+        }
     }
 
     public void OutOfLuck() {

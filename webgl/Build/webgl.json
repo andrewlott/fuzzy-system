@@ -1,5 +1,5 @@
 {
-"companyName": "Andrew Lott",
+"companyName": "alott",
 "productName": "One Lucky Day",
 "productVersion": "0.1",
 "dataUrl": "webgl.data.unityweb",
@@ -10,7 +10,7 @@
 "splashScreenStyle": "Dark",
 "backgroundColor": "#231F20",
 "cacheControl": {"default": "must-revalidate"},
-"developmentBuild": true,
+"developmentBuild": false,
 "multithreading": false,
 "unityVersion": "2019.1.0f2"
 }

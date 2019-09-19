@@ -6,7 +6,7 @@ using System.Linq;
 
 public class MatchSystem : BaseSystem {
     private static float _animationRate = 0.075f;
-    private static int _maxAnimationTimes = 8;
+    private static int _maxAnimationTimes = 15;
     private static int _animatingCounter;
 
     public override void Start() {
@@ -46,6 +46,7 @@ public class MatchSystem : BaseSystem {
             MatchComponent mc = c as MatchComponent;
             if (mc.win) {
                 GameController.Instance.playerLuck.maxLuck += GameController.Instance.opponentLuck.maxLuck; // TODO: Maybe its more fair to use luck
+                Debug.Log(string.Format("Player luck gained {0} to {1}", GameController.Instance.opponentLuck.maxLuck, GameController.Instance.playerLuck.maxLuck));
                 GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
             } else if (GameController.Instance.playerLuck.maxLuck < 1) {
                 GameController.Instance.dialogStateMachine.SetTrigger("OutOfLuckTrigger");
@@ -72,19 +73,28 @@ public class MatchSystem : BaseSystem {
         //Debug.Log(string.Format("Threshold: {0}", threshold));
         //Debug.Log(string.Format("Win %: {0}", winPercent));
 
-        mc.win = Utils.RandomFloat(1.0f) <= winPercent;
+        mc.win = true; // Utils.RandomFloat(1.0f) <= winPercent;
+        /*
+         *
+         * 6 6, threshold 3, mc.threshold is 4
+         * 2-3 win, 4-12 lose
+         * 
+         */
         int number = mc.win ?
-            1 + Utils.RandomInt(threshold):
-            1 + threshold + Utils.RandomInt(totalSides - threshold);
+            mc.dice.Count + Utils.RandomInt(mc.threshold - mc.dice.Count):
+            mc.threshold + Utils.RandomInt(totalSides - mc.threshold + 1);
+
         Debug.Log(string.Format("Number: {0}", number));
         mc.rolledDice = new List<int>(mc.dice);
-        int diff = totalSides - number;
-        for (int i = 0; i < diff; i++) {
+        for (int i = 0; i < mc.rolledDice.Count; i++) {
+            mc.rolledDice[i] = 1;
+        }
+        for (int i = 0; i < number - mc.rolledDice.Count; i++) {
             int index = Utils.RandomInt(mc.rolledDice.Count);
-            while (mc.rolledDice[index] <= 1) {
+            while (mc.rolledDice[index] == mc.dice[index]) {
                 index = Utils.RandomInt(mc.rolledDice.Count);
             }
-            mc.rolledDice[index]--;
+            mc.rolledDice[index]++;
         }
         Debug.Log(string.Format("Win: {0}", mc.win));
         Debug.Log("Dice:");
