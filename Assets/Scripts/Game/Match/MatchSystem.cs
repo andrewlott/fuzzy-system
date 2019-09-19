@@ -49,6 +49,7 @@ public class MatchSystem : BaseSystem {
                 GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
             } else if (GameController.Instance.playerLuck.maxLuck < 1) {
                 GameController.Instance.dialogStateMachine.SetTrigger("OutOfLuckTrigger");
+                GameController.Instance.ClearProgress();
             } else {
                 GameController.Instance.dialogStateMachine.SetTrigger("BadTrigger");
             }
