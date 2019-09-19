@@ -9,7 +9,10 @@ public class AdSystem : BaseSystem {
     private string _gameId = "3188551";
 #elif UNITY_ANDROID
     private string _gameId = "3188550";
+#else
+    private string _gameId = null;
 #endif
+
     private string _bannerPlacementId = "MainPlacement";
     private bool _testMode = true;
 

@@ -6,7 +6,7 @@ using System.Linq;
 
 public class MatchSystem : BaseSystem {
     private static float _animationRate = 0.075f;
-    private static int _maxAnimationTimes = 15;
+    private static int _maxAnimationTimes = 8;
     private static int _animatingCounter;
 
     public override void Start() {
@@ -40,7 +40,6 @@ public class MatchSystem : BaseSystem {
             AnimateDice(mc);
         }
     }
-    // SOMETIMES WIN CONDITION IS NOT RIGHT
 
     public override void OnComponentRemoved(BaseComponent c) {
         if (c is MatchComponent) {

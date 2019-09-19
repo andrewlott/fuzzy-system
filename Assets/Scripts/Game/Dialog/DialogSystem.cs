@@ -8,6 +8,7 @@ public class DialogSystem : BaseSystem {
     protected TextMeshProUGUI _tmp;
     private bool _getNext;
     private bool _waiting;
+    private bool _showing;
 
     public override void Start() {
         _tmp = GameController.Instance.dialogText;
@@ -31,6 +32,8 @@ public class DialogSystem : BaseSystem {
         } else if (c is TouchComponent) {
             if (_waiting) {
                 _getNext = true;
+            } else if (_showing) {
+                _tmp.maxVisibleCharacters = _tmp.textInfo.pageInfo[_tmp.pageToDisplay - 1].lastCharacterIndex;
             }
         }
     }
@@ -49,12 +52,11 @@ public class DialogSystem : BaseSystem {
 
     // bug in dialog system where get stuck on wrong page maybe
     private IEnumerator InternalDisplayDialog(DialogComponent dc) {
-        int len = 0;
+        _showing = true;
         _tmp.text = string.Format(dc.dialog, GameController.Instance.playerLuck.item, GameController.Instance.opponentLuck.item);
         _tmp.maxVisibleCharacters = 0;
         while (_tmp.maxVisibleCharacters < _tmp.text.Length) {
-            len += 1;
-            _tmp.maxVisibleCharacters = len;
+            _tmp.maxVisibleCharacters++;
             yield return new WaitForSeconds(_RATE);
             if (_tmp.maxVisibleCharacters > _tmp.textInfo.pageInfo[_tmp.pageToDisplay - 1].lastCharacterIndex) { // condition needs improving
                 _waiting = true;
@@ -64,6 +66,7 @@ public class DialogSystem : BaseSystem {
                 _tmp.pageToDisplay = Mathf.Min(_tmp.textInfo.pageInfo.Length, _tmp.pageToDisplay + 1);
             }
         }
+        _showing = false;
 		OnComplete(dc);
     }
 
