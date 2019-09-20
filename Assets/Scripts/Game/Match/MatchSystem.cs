@@ -46,6 +46,7 @@ public class MatchSystem : BaseSystem {
             MatchComponent mc = c as MatchComponent;
             if (mc.win) {
                 GameController.Instance.playerLuck.maxLuck += GameController.Instance.opponentLuck.maxLuck; // TODO: Maybe its more fair to use luck
+                PlayerPrefs.SetInt("MaxLuck", GameController.Instance.playerLuck.maxLuck);
                 Debug.Log(string.Format("Player luck gained {0} to {1}", GameController.Instance.opponentLuck.maxLuck, GameController.Instance.playerLuck.maxLuck));
                 GameController.Instance.dialogStateMachine.SetTrigger("GoodTrigger");
             } else if (GameController.Instance.playerLuck.maxLuck < 1) {
@@ -73,7 +74,7 @@ public class MatchSystem : BaseSystem {
         //Debug.Log(string.Format("Threshold: {0}", threshold));
         //Debug.Log(string.Format("Win %: {0}", winPercent));
 
-        mc.win = true; // Utils.RandomFloat(1.0f) <= winPercent;
+        mc.win = Utils.RandomFloat(1.0f) <= winPercent;
         /*
          *
          * 6 6, threshold 3, mc.threshold is 4

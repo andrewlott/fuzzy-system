@@ -43,7 +43,9 @@ public class DialogSystem : BaseSystem {
             DialogComponent dc = c as DialogComponent;
             if (dc.dialogId == 43) {
                 GameController.Instance.ClearProgress();
-                return;
+            } else if (dc.dialogId == 1) {
+                PlayerPrefs.SetInt("MaxLuck", 5);
+                GameController.Instance.playerLuck.maxLuck = 5;
             }
             _tmp.text = "";
 			_tmp.pageToDisplay = 1;

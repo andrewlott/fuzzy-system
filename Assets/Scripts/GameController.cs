@@ -74,6 +74,8 @@ public class GameController : BaseController {
 
     private void Setup() {
         ShowHideLuck(false);
+        int maxLuck = PlayerPrefs.HasKey("MaxLuck") ? PlayerPrefs.GetInt("MaxLuck") : 5;
+        playerLuck.maxLuck = maxLuck;
         dialogText.text = "";
 
         _dialogs.Add(""); // to offset
@@ -142,6 +144,7 @@ public class GameController : BaseController {
         if (!luckSelected) {
             luckSelected = true;
             playerLuck.maxLuck -= playerLuck.luck;
+            PlayerPrefs.SetInt("MaxLuck", playerLuck.maxLuck);
             Debug.Log(string.Format("Player luck used {0} to {1}", playerLuck.luck, GameController.Instance.playerLuck.maxLuck));
         }
     }
